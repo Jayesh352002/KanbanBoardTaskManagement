@@ -1,0 +1,57 @@
+<div class="homepage-div">
+  <div class="card" style="padding: 10px; margin: 20px">
+    <h1 class="card-title" style="font-size: 32px; font-weight: bold;">To-Do</h1>
+    <div *ngFor="let task of TaskData">
+      <div
+      class="card"
+      style="padding: 8px; margin: 10px; cursor: pointer"
+      *ngIf="task.status === 'todo'"
+      (click)="taskId(task.id)"
+      >
+        <h5 class="card-text" style="font-size: 21px; font-weight: bold;">
+          {{ task.title }}
+        </h5>
+        <p>{{ task.description }}</p>
+      </div>
+    </div>
+    <a class="btn btn-primary" (click)="openTask('todo')">Add Task</a>
+  </div>
+
+  <div class="card" style="padding: 10px; margin: 20px">
+    <h1 class="card-title" style="font-size: 32px; font-weight: bold;">Doing</h1>
+    <div *ngFor="let task of TaskData">
+      <div
+        class="card"
+        style="padding: 8px; margin: 10px; cursor: pointer"
+        *ngIf="task.status === 'doing'"
+        (click)="taskId(task.id)"
+      >
+        <h5 class="card-text" style="font-size: 21px; font-weight: bold;">
+          {{ task.title }}
+        </h5>
+        <p>{{ task.description }}</p>
+      </div>
+    </div>
+    <a class="btn btn-primary" (click)="openTask('doing')">Add Task</a>
+  </div>
+
+  <div class="card" style="padding: 10px; margin: 20px">
+    <h1 class="card-title" style="font-size: 32px; font-weight: bold;">Done</h1>
+    <div *ngFor="let task of TaskData">
+      <div
+        class="card"
+        style="padding: 8px; margin: 10px; cursor: pointer"
+        *ngIf="task.status === 'done'"
+        (click)="taskId(task.id)"
+      >
+        <h5 class="card-text" style="font-size: 21px; font-weight: bold;">
+          {{ task.title }}
+        </h5>
+        <p>{{ task.description }}</p>
+      </div>
+    </div>
+    <a class="btn btn-primary" (click)="openTask('done')">Add Task</a>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
